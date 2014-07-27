@@ -1,0 +1,23 @@
+{
+  "name": "irc-client-api",
+  "version": "1.0.0",
+  "description": "Lightweight JavaScript IRC client designed to provide a low-level access to a irc server whenever possible.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "socket.io": "*",
+    "express": "3.5",
+    "express3-handlebars": "*",
+    "handlebars": "*"
+  },
+  "repository": "",
+  "keywords": [
+    "irc",
+    "client",
+    "api"
+  ],
+  "author": "seykron",
+  "license": "GPLv2"
+}

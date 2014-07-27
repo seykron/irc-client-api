@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Irc client API test</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="/asset/es5-shim.min.js"></script>
+
+    <!-- Transports -->
+    <script type="text/javascript"
+      src="http://localhost:8888/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/asset/transport/WebSocket.js"></script>
+
+    <!-- Irc client components -->
+    <script type="text/javascript" src="/asset/EventEmitter.js"></script>
+    <script type="text/javascript" src="/asset/Message.js"></script>
+    <script type="text/javascript" src="/asset/Connection.js"></script>
+    <script type="text/javascript" src="/asset/Client.js"></script>
+    <script type="text/javascript">
+      var client = new irc.Client("seykron__", {
+        host: "london-uk.pirateirc.net",
+        port: 6697,
+        // Used when there's no native sockes support. Aka always...
+        proxy: {
+          host: "localhost",
+          port: 8888
+        }
+      });
+      var channel;
+      var user;
+
+      client.connect(function (err) {
+        if (err) {
+          console.log("Cannot connect to server: " + err);
+          return;
+        }
+        channel = client.join("#testing");
+        channel.on("ready", function () {
+          channel.message("Hello all!");
+        });
+        channel.on("message", function (message) {
+          console.log("<" + message.user.nick + ">" + ": " + message.text);
+        });
+        channel.on("part", function (info) {
+          console.log("User " + info.user.nick + " left (" + info.message + ")");
+        });
+        client.on("quit", function (info) {
+          console.log("User " + info.user.nick + " quits (" + info.message + ")");
+        });
+        client.on("error", function (error) {
+          console.log(error);
+        });
+        user = client.user("seykron");
+        user.on("error", function (error) {
+          console.log(error);
+        });
+        user.on("message", function (message) {
+          console.log("<" + user.nick + ">" + ": " + message);
+        });
+        console.log(client.getConnection().getFeatures());
+      });
+    </script>
+  </body>
+</html>
