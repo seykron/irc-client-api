@@ -1,13 +1,13 @@
 # IRC Client API
 
 Lightweight JavaScript IRC client designed to provide a low-level access to a
-irc server if possible.
+irc server whenever possible.
 
 Current features:
 
 * Low-level event-based connection to the irc server.
 
-* Supports different transports. The connection tries to resolve from most low-
+* Support for different transports. The connection tries to resolve from most low-
 level transport (aka native sockets) to higher level transport (websocket
 protocol using socket.io).
 
@@ -15,7 +15,7 @@ protocol using socket.io).
 
 Future features:
 
-* TSL support
+* TLS support
 
 * Native sockets for android/ios using [cordova](https://cordova.apache.org/).
 
