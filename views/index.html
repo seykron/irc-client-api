@@ -43,8 +43,14 @@
         channel.on("part", function (info) {
           console.log("User " + info.user.nick + " left (" + info.message + ")");
         });
+        channel.on("info", function (field, value) {
+          console.log("Channel " + channel.name + " " + field + ": " + value);
+        });
         client.on("quit", function (info) {
           console.log("User " + info.user.nick + " quits (" + info.message + ")");
+        });
+        client.on("notice", function (notice) {
+          console.log("NOTICE to " + notice.target + ": " + notice.text);
         });
         client.on("error", function (error) {
           console.log(error);
