@@ -1,0 +1,9 @@
+/** IRC buffer. */
+.buffer {
+  border: 1px solid #666666;
+  font-family: monospace;
+  font-size: 10px;
+  height: 300px;
+  overflow: auto;
+  widows: 100%;
+}
