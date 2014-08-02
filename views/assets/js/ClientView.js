@@ -61,7 +61,7 @@ irc.ClientView = function (container, client, options) {
     messageField.keyup(function (event) {
       var message = messageField.val();
 
-      if (event.which == 13) {
+      if (event.which == 13 && message) {
         write(buffer, "[You]: " + message);
         channel.message(message);
         messageField.val("");

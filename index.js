@@ -7,10 +7,9 @@ var express = require('express');
 var app = express();
 var server = http.createServer(app);
 var exphbs  = require('express3-handlebars');
-var proxyConfig = JSON.parse(fs.readFileSync(path
-  .join(__dirname, "config.json")));
-var proxy = new IrcProxy(server, proxyConfig);
+var proxy = new IrcProxy(server);
 
+// Required to use TLS with newver IRC servers.
 https.globalAgent.options.secureProtocol = 'SSLv3_method';
 
 app.engine('html', exphbs());

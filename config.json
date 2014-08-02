@@ -1,7 +1,0 @@
-{
-  "ircPort": 6697,
-  "ircHost": "london-uk.pirateirc.net",
-  "redirectUrl": "http://webirc.oftc.net",
-  "transport": "socket.io",
-  "reconnectTime": 15000
-}

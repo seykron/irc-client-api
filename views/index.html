@@ -31,6 +31,7 @@
         window.client = new irc.Client("seykron__", {
           host: "london-uk.pirateirc.net",
           port: 6697,
+          tls: true,
           // Used when there's no native sockes support. Aka always...
           proxy: {
             host: "localhost",
